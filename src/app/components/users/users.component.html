@@ -27,7 +27,10 @@
              {{user.balance | number:"1.2"}}
          </li>
          <li class="list-group-item">
-            {{user.balance | percent}}
+            {{user.balance | percent:"1.2"}}
+        </li>
+        <li class="list-group-item" ngNonBindable>
+           <pre>{{user.balance | number:"1.2"}}</pre> 
         </li>
         </ul>
       </div>
