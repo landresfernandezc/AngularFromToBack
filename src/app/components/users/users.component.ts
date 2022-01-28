@@ -27,7 +27,9 @@ export class UsersComponent implements OnInit {
           city: "Alajuela",
           state: "San Ramon",
         },
-        image:'https://picsum.photos/300/300?random=1'
+        image:'https://picsum.photos/300/300?random=1',
+        balance:100,
+        registered: new Date('01/01/2018 00:00:00')
       },
       {
         firstName: "Luis",
@@ -39,7 +41,9 @@ export class UsersComponent implements OnInit {
           state: "San Ramon",
         },
         image:'https://picsum.photos/300/300?random=2',
-        isActive:true
+        isActive:true,
+        balance:200,
+        registered: new Date('01/01/2017 00:00:00')
       }
     ]
     this.addUser({
