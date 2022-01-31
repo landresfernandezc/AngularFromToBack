@@ -7,12 +7,21 @@ import { User } from "src/app/models/User";
   styleUrls: ["./users.component.scss"],
 })
 export class UsersComponent implements OnInit {
+  user:User={
+    firstName:'',
+    lastName:'',
+    address:{
+      state:'',
+      city:'',
+      street:''
+    },
+    age:undefined
+  }
   users: User[];
   showExtended:boolean=true;
   loaded:boolean=true;
-  enableAdd: boolean= true;
-  currentClasses={};
-  currentStyles={};
+  enableAdd: boolean= false;
+  showUsersForm: boolean= false;
   constructor() {}
 
   ngOnInit(): void {
@@ -28,7 +37,6 @@ export class UsersComponent implements OnInit {
           state: "San Ramon",
         },
         image:'https://picsum.photos/300/300?random=1',
-        balance:100,
         registered: new Date('01/01/2018 00:00:00')
       },
       {
@@ -42,30 +50,31 @@ export class UsersComponent implements OnInit {
         },
         image:'https://picsum.photos/300/300?random=2',
         isActive:true,
-        balance:200,
-        registered: new Date('01/01/2017 00:00:00')
+        registered: new Date('01/01/2017 00:00:00'),
+        hide:true
       }
     ]
-    this.addUser({
-      firstName: "Roberto",
-      lastName: "Fernandez",
-    })
-    this.setCurrentClasses();
-    this.setCurrentStyles();
   }
-  addUser(user:User){
-    this.users.push(user)
-  }
-  setCurrentClasses(){
-    this.currentClasses={
-      'btn-success':this.enableAdd,
-      'big-text':this.showExtended
+  addUser(){
+    this.user.isActive=true;
+    this.user.registered=new Date();
+    this.users.unshift(this.user)
+    this.user= {
+      firstName:'',
+      lastName:'',
+      address:{
+        state:'',
+        city:'',
+        street:''
+      },
+      age:undefined
     }
   }
-  setCurrentStyles(){
-    this.currentStyles= {
-      'padding-top':this.showExtended ?'0':'40px',
-      'font-size':this.showExtended?'':'40px'
-    }
+  fireEvent(e: any){
+    console.log("botton clicked",e.type)
+  }
+  onSubmit(e:any){
+    console.log('Submit')
+    e.preventDefault();
   }
 }

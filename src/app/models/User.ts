@@ -2,7 +2,7 @@ export interface User {
     firstName: string;
     lastName: string;
     age?: number;
-    address?: {
+    address: {
       street: string;
       city: string;
       state: string;
@@ -11,4 +11,5 @@ export interface User {
     isActive?:boolean;
     balance?:number;
     registered?:any;
+    hide?:boolean;
   }
