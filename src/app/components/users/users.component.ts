@@ -10,12 +10,7 @@ export class UsersComponent implements OnInit {
   user:User={
     firstName:'',
     lastName:'',
-    address:{
-      state:'',
-      city:'',
-      street:''
-    },
-    age:undefined
+    email:''
   }
   users: User[];
   showExtended:boolean=true;
@@ -30,24 +25,14 @@ export class UsersComponent implements OnInit {
       {
         firstName: "Andres",
         lastName: "Fernandez",
-        age: 26,
-        address: {
-          street: "Second right street 50 meters North",
-          city: "Alajuela",
-          state: "San Ramon",
-        },
+        email:'landresf23',
         image:'https://picsum.photos/300/300?random=1',
         registered: new Date('01/01/2018 00:00:00')
       },
       {
         firstName: "Luis",
         lastName: "Fernandez",
-        age: 26,
-        address: {
-          street: "Second right street 50 meters North",
-          city: "Alajuela",
-          state: "San Ramon",
-        },
+        email:'landresf24',
         image:'https://picsum.photos/300/300?random=2',
         isActive:true,
         registered: new Date('01/01/2017 00:00:00'),
@@ -62,19 +47,13 @@ export class UsersComponent implements OnInit {
     this.user= {
       firstName:'',
       lastName:'',
-      address:{
-        state:'',
-        city:'',
-        street:''
-      },
-      age:undefined
+      email:''
     }
   }
   fireEvent(e: any){
     console.log("botton clicked",e.type)
   }
-  onSubmit(e:any){
+  onSubmit(){
     console.log('Submit')
-    e.preventDefault();
   }
 }
