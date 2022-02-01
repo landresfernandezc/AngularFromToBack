@@ -20,13 +20,19 @@ export class UsersComponent implements OnInit {
   enableAdd: boolean= false;
   showUsersForm: boolean= false;
   @ViewChild('userForm') form: any;
+  data:any;
   constructor(private dataService:DataService) {
 
   }
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe(data=>{
+      console.log(data)
+    });
     this.loaded=true;
-    this.users= this.dataService.getUsers();
+    this.dataService.getUsers().subscribe(users=>{
+      this.users= users;
+    });
   }
   fireEvent(e: any){
     console.log("botton clicked",e.type)
