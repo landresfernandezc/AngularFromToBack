@@ -1,7 +1,7 @@
 import { Component, OnInit ,ViewChild} from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { User } from "src/app/models/User";
-import { DataService } from "src/app/services/data.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-users",
@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   showUsersForm: boolean= false;
   @ViewChild('userForm') form: any;
   data:any;
-  constructor(private dataService:DataService) {
+  constructor(private dataService:UserService) {
 
   }
 
