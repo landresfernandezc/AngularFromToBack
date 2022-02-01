@@ -1,6 +1,7 @@
 import { Component, OnInit ,ViewChild} from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { User } from "src/app/models/User";
+import { DataService } from "src/app/services/data.service";
 
 @Component({
   selector: "app-users",
@@ -19,28 +20,13 @@ export class UsersComponent implements OnInit {
   enableAdd: boolean= false;
   showUsersForm: boolean= false;
   @ViewChild('userForm') form: any;
-  constructor() {}
+  constructor(private dataService:DataService) {
+
+  }
 
   ngOnInit(): void {
     this.loaded=true;
-    this.users=[
-      {
-        firstName: "Andres",
-        lastName: "Fernandez",
-        email:'landresf23',
-        image:'https://picsum.photos/300/300?random=1',
-        registered: new Date('01/01/2018 00:00:00')
-      },
-      {
-        firstName: "Luis",
-        lastName: "Fernandez",
-        email:'landresf24',
-        image:'https://picsum.photos/300/300?random=2',
-        isActive:true,
-        registered: new Date('01/01/2017 00:00:00'),
-        hide:true
-      }
-    ]
+    this.users= this.dataService.getUsers();
   }
   fireEvent(e: any){
     console.log("botton clicked",e.type)
