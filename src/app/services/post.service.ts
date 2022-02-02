@@ -23,4 +23,8 @@ export class PostService {
   updatePost(post:Post):Observable<Post>{
     return this.http.put<Post>(`${this.postUrl}/${post.id}`,post,this.httpOptions);
   }
+  removePost(post:Post | number):Observable<Post>{
+    const id= typeof post === 'number' ? post: post.id;
+    return this.http.delete<Post>(`${this.postUrl}/${id}`,this.httpOptions);
+  }
 }

@@ -12,7 +12,7 @@
       {{ post.body }}
     </p>
     <hr />
-    <button class="btn btn-danger">
+    <button (click)="removePost(post)"  class="btn btn-danger">
       <i class="fa fa-remove"></i>
     </button>
     <button (click)="updatePost(post)" class="btn btn-light">
