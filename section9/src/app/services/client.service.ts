@@ -30,4 +30,20 @@ export class ClientService {
     }));
     return this.clients;
   }
+  newClient(client:Client){
+   this.clientsCollection.add(client);
+  }
+  getClient(id:string):Observable<Client> {
+    this.clientsDoc= this.afs.doc<Client>(`clients/${id}`);
+    this.client = this.clientsDoc.snapshotChanges().pipe(map(action=>{
+      if(action.payload.exists === false){
+        return null as any;
+      }else{
+        const data=  action.payload.data() as Client;
+        data.id= action.payload.id;
+        return data;
+      }
+    }))
+    return this.client;
+  }
 }

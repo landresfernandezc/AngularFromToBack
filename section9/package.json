@@ -21,6 +21,7 @@
     "angularfire2": "^5.4.2",
     "bootstrap": "4.0.0-beta.2",
     "firebase": "^7.24.0",
+    "flash-messages-angular": "^4.0.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
