@@ -21,6 +21,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import { ClientService } from './services/client.service';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'flash-messages-angular';
+import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { FlashMessagesModule } from 'flash-messages-angular';
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService],
+  providers: [ClientService,AuthService,SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

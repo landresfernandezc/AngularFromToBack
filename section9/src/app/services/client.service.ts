@@ -44,6 +44,14 @@ export class ClientService {
         return data;
       }
     }))
-    return this.client;
+    return this.client; 
+  }
+  updateClient(client:Client){
+    this.clientsDoc= this.afs.doc(`clients/${client.id}`);
+    this.clientsDoc.update(client);
+  }
+  deleteClient(id:string){
+    this.clientsDoc= this.afs.doc(`clients/${id}`);
+    this.clientsDoc.delete();
   }
 }

@@ -47,6 +47,13 @@ build/Release
 node_modules/
 jspm_packages/
 .angular/cache/
+.firebase
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
+database.rules.json
+../.github/
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
